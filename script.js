@@ -5,8 +5,6 @@ var data_url = 'http://makeup-api.herokuapp.com/api/v1/products.json';
 var main_div = document.querySelector("#main_div");
 var search_out = '',card_out='';
 var full_data=[];
-var input = document.querySelector("#input1");
-var btn = document.querySelector(".btn");
 
 
 //Display when DOM Loaded
