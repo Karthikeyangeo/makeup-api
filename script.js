@@ -34,7 +34,7 @@ async function search()
 {
     try
     {
-        let res = await fetch(`http://makeup-api.herokuapp.com/api/v1/products.json`    );
+        let res = await fetch(`https://makeup-api.herokuapp.com/api/v1/products.json`    );
         let data = await res.json();
         // getting all the data from API to an array 
         full_data = data;
