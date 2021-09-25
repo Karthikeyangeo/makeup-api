@@ -1,11 +1,9 @@
 // Script file for Make up API
 
 // Variable declaration 
-var data_url = 'http://makeup-api.herokuapp.com/api/v1/products.json';
 var main_div = document.querySelector("#main_div");
 var search_out = '',card_out='';
 var full_data=[];
-
 
 //Display when DOM Loaded
 document.addEventListener('DOMContentLoaded',display_items());
@@ -36,7 +34,7 @@ async function search()
 {
     try
     {
-        let res = await fetch(data_url);
+        let res = await fetch(`http://makeup-api.herokuapp.com/api/v1/products.json`    );
         let data = await res.json();
         // getting all the data from API to an array 
         full_data = data;
