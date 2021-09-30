@@ -5,6 +5,7 @@ var main_div = document.querySelector("#main_div");
 var search_out = '',card_out='';
 var full_data=[];
 
+
 //Display when DOM Loaded
 document.addEventListener('DOMContentLoaded',display_items());
 
@@ -24,10 +25,19 @@ function display_items()
     div_detail.setAttribute('class','card-box mb-3');
     div_detail.setAttribute('id','card');
     main_div.appendChild(div_detail);
+
+   
     search();
 }
 
 var card = document.getElementById("card");
+
+// Adding spinner 
+card.innerHTML=`<div class=" container d-flex justify-content-center">
+                    <div class="spinner-grow  text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
+                    </div>
+                </div>`
 
 // function to fetch the data from API
 async function search()
@@ -39,6 +49,7 @@ async function search()
         // getting all the data from API to an array 
         full_data = data;
         items_display(full_data);
+    
     }
     catch(error)
     {
@@ -54,7 +65,6 @@ function items_display(data)
     if(data.length>0)
     {
         data.forEach((x)=>{
-
             // Display the DOM elements using template literals and inner HMTL options
             card_out += `<div class="card m-3 text-center p-3 ">
                             <img class="card-img-top" src="${x.image_link}" alt="Product Image" height="250" width="250">
@@ -72,6 +82,9 @@ function items_display(data)
     {
         card_out = `<div class="card mt-5 error"><h5>No Products found </h5></div>`
     }
+
+    
     card.innerHTML = card_out;
+   
 }
 
